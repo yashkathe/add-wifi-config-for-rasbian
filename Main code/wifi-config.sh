@@ -48,15 +48,26 @@ read -p 'enter the type of security mode your wifi has ' WIFIMODE
 
 echo 
 
-echo "your wifi has ${WIFIMODE} mode of security "
+echo "your wifi has ${WIFIMODE} mode of security"
 
-echo 'network={' 1>> text
+echo
 
-echo "	ssid="${WIFINAME}"" 1>> text
-echo " 	psk="${WIFIPASS}"" 1>> text
-echo " 	key_mgnt=${WIFIMODE}" 1>> text
+sleep 2s
 
-echo '}' 1>> text
+echo "adding details .. "
+
+sleep 3s
+
+echo 
+echo "reboot your machine to check if wifi is connected successfully"
+
+echo 'network={' 1>> write-file.txt
+
+echo "	ssid="${WIFINAME}"" 1>> write-file.txt
+echo " 	psk="${WIFIPASS}"" 1>> write-file.txt
+echo " 	key_mgnt=${WIFIMODE}" 1>> write-file.txt
+
+echo '}' 1>> write-file.txt
 
 }
 
