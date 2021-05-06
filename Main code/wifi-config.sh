@@ -19,6 +19,19 @@ add_wifi() {
     read -s -p "Enter the password of your wifi" WIFI_PASS
 
     read -p "Enter the security mode of your wifi" WIFI_SEC
+
+    touch /etc/wpa_supplicant/wpa_supplicant. conf
+
+    echo 'network={' 1>>/etc/wpa_supplicant/wpa_supplicant.conf
+
+    echo "  ssid="${WIFI_NAME}"" 1>>/etc/wpa_supplicant/wpa_supplicant.conf
+
+    echo "  psk="${WIFI_PASS}"" 1>>/etc/wpa_supplicant/wpa_supplicant.conf
+
+    echo "  key_mgnt="${WIFI_SEC}"" 1>>/etc/wpa_supplicant/wpa_supplicant.conf
+
+    echo '}' 1>>/etc/wpa_supplicant/wpa_supplicant.conf 
+
 }
 
 #Run this code when user asks for help
