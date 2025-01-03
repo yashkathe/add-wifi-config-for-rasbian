@@ -6,7 +6,7 @@ import time
 import argparse
 
 # don't allow user to run as sudo
-if os.geteuid == 0:
+if os.geteuid() == 0:
     print('Don\'t run the script as sudo')
 
 # check if wpa_supplicant.conf exists
